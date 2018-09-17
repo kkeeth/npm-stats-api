@@ -1,0 +1,33 @@
+{
+  "name": "npm-stats-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "ava": "^0.25.0",
+    "babel": "^6.23.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.0"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "test": "ava ./test --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-kuwahara/npm-stats-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-kuwahara/npm-stats-api/issues"
+  },
+  "homepage": "https://github.com/k-kuwahara/npm-stats-api#readme"
+}
