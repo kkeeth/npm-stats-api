@@ -30,8 +30,8 @@ var npm = require('npm-stat-api');
 // 1. Package Name
 // 2. Start Date
 // 3. End Date
-npm.stat('nutrient-database','2016-07-20','2017-08-20', function(err, response){
-	console.log(JSON.stringify(response));
+npm.stat('check-stats-modules','2018-07-20','2018-08-20', function(err, response){
+   console.log(JSON.stringify(response));
 });
 
 ```
@@ -44,8 +44,8 @@ var npm = require('npm-stat-api');
 
 // Parameters:
 // 1. Package name
-npm.details('nutrient-database', function(err, response){
-	console.log(JSON.stringify(response));
+npm.details('check-stats-modules', function(err, response){
+   console.log(JSON.stringify(response));
 });
 
 ```
@@ -59,6 +59,6 @@ npm.details('nutrient-database', function(err, response){
 This module has been tested under limited scenarios. If you find any issue please feel free to report via one of the below platforms:
 
 Github: <a href="https://github.com/k-kuwahara/npm-stats-api/issues">npm-stats-api</a><br>
-Email: zensin0082@gmail.co<br>
-Twitter: kuwahara_jsri
+Email: zensin0082@gmail.com<br>
+Twitter: @kuwahara_jsri
 

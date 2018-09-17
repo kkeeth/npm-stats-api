@@ -1,7 +1,7 @@
 {
   "name": "npm-stats-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
   "dependencies": {
     "request": "^2.88.0"
@@ -23,7 +23,20 @@
     "type": "git",
     "url": "git+https://github.com/k-kuwahara/npm-stats-api.git"
   },
-  "keywords": [],
+  "keywords": [
+    "api",
+    "npm",
+    "api npm",
+    "npm stats",
+    "npm api",
+    "npm stats api",
+    "npm stat",
+    "npm package details",
+    "npm package",
+    "npm package stats",
+    "npm package api",
+    "npm stat details"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
