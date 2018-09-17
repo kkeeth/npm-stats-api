@@ -14,7 +14,7 @@ Install via NPM
 
 ```js
 
-npm install npm-stat-api --save
+npm install npm-stats-api --save
 
 ```
 
@@ -40,7 +40,7 @@ ii. Get Details of Package
 
 ```js
 
-var npm = require('npm-stat-api');
+var npm = require('npm-stats-api');
 
 // Parameters:
 // 1. Package name
