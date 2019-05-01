@@ -30,8 +30,8 @@ var npm = require('npm-stat-api');
 // 1. Package Name
 // 2. Start Date
 // 3. End Date
-npm.stat('check-stats-modules','2018-07-20','2018-08-20', function(err, response){
-   console.log(JSON.stringify(response));
+npm.stat('check-stats-modules','2018-07-20','2018-08-20', (err, response) => {
+   console.log(JSON.stringify(response))
 });
 
 ```
@@ -44,8 +44,8 @@ var npm = require('npm-stats-api');
 
 // Parameters:
 // 1. Package name
-npm.details('check-stats-modules', function(err, response){
-   console.log(JSON.stringify(response));
+npm.details('check-stats-modules', (err, response) => {
+   console.log(JSON.stringify(response))
 });
 
 ```
