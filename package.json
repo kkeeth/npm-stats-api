@@ -9,9 +9,9 @@
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
-    "ava": "^0.25.0",
+    "ava": "^1.4.1",
     "babel": "^6.23.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.0"
   },

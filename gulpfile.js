@@ -10,7 +10,7 @@ const path = {
 const babelrc = {
    presets: [
       [
-         '@babel/env',
+         '@babel/preset-env',
          {
             targets: {
                node: true
@@ -21,7 +21,7 @@ const babelrc = {
 }
 
 gulp.task('babel:lib', () => {
-   gulp.src(path.lib)
+   return gulp.src(path.lib)
       .pipe(plumber({
          errorHandler: (err) => {
             console.log(err)
@@ -32,7 +32,7 @@ gulp.task('babel:lib', () => {
 })
 
 gulp.task('babel:index', () => {
-    gulp.src(path.index)
+    return gulp.src(path.index)
       .pipe(plumber({
          errorHandler: (err) => {
             console.log(err)
@@ -43,8 +43,8 @@ gulp.task('babel:index', () => {
 })
 
 gulp.task('watch', () => {
-   gulp.watch(path.lib, ['babel:lib'])
-   gulp.watch(path.index, ['babel:index'])
+   gulp.watch(path.lib, gulp.task('babel:lib'))
+   gulp.watch(path.index, gulp.task('babel:index'))
 });
 
-gulp.task('default', ['watch'])
+gulp.task('default', gulp.parallel('watch'))
