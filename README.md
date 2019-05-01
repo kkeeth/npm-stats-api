@@ -50,6 +50,12 @@ npm.details('check-stats-modules', (err, response) => {
 
 ```
 
+If you want to try it easily at hand, please clone this repository and run the `app.js` file on `nodejs`.
+
+```bash
+$ node app.js
+```
+
 # License
 
 [MIT](https://github.com/k-kuwahara/npm-stats-api/blob/master/LICENSE)
@@ -60,5 +66,5 @@ This module has been tested under limited scenarios. If you find any issue pleas
 
 Github: <a href="https://github.com/k-kuwahara/npm-stats-api/issues">npm-stats-api</a><br>
 Email: zensin0082@gmail.com<br>
-Twitter: @kuwahara_jsri
+Twitter: <a href="https://twitter.com/kuwahara_jsri" target="_blank">@kuwahara_jsri</a>
 
