@@ -24,14 +24,14 @@ i. Get Stats of Package
 
 ```js
 
-var npm = require('npm-stat-api');
+const npm = require('npm-stat-api');
 
 // Parameters:
 // 1. Package Name
 // 2. Start Date
 // 3. End Date
-npm.stat('check-stats-modules','2018-07-20','2018-08-20', (err, response) => {
-   console.log(JSON.stringify(response))
+npm.stat('check-stats-modules','2018-07-20','2018-08-20', (err, res) => {
+   console.log(JSON.stringify(res))
 });
 
 ```
@@ -40,12 +40,12 @@ ii. Get Details of Package
 
 ```js
 
-var npm = require('npm-stats-api');
+const npm = require('npm-stats-api');
 
 // Parameters:
 // 1. Package name
-npm.details('check-stats-modules', (err, response) => {
-   console.log(JSON.stringify(response))
+npm.details('check-stats-modules', (err, res) => {
+   console.log(JSON.stringify(res))
 });
 
 ```
