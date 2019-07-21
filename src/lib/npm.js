@@ -13,7 +13,8 @@ module.exports = {
             cb('Package not found', body)
          }
          else {
-            cb('error', `error: ${err.code}`)
+            // server or network error is occured
+            cb('Error', "An error has occurred. Please try again later, sorry.")
          }
       })
    },
