@@ -1,6 +1,6 @@
 {
   "name": "npm-stats-api",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
   "dependencies": {
