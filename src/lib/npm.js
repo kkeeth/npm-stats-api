@@ -6,16 +6,24 @@ module.exports = {
          url: url,
          json: true
       }, (err, res, body) => {
-         if (!err && res.statusCode === 200) {
-            cb(null, body)
-         }
-         else if (!err && res.statusCode === 404) {
-            cb('Package not found', body)
-         }
-         else {
-            // server or network error is occured
-            cb('Error', 'An error has occurred. Please try again later, sorry')
-         }
+        if (!err) {
+           switch(res.statusCode) {
+              case 200:
+                 cb(null, body)
+                 break
+              case 400:
+                 cb('Invalid data', body)
+                 break
+              case 404:
+                 cb('Package not found', body)
+                 break
+              case 412:
+                 cb('Precondition failed', body)
+                 break
+           }
+        } else {
+          cb('Error', 'An error has occurred. Please try again later, sorry')
+        }
       })
    },
    stat: function(pkg, start, end, cb) {
