@@ -13,7 +13,9 @@
     "babel": "^6.23.0",
     "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
-    "gulp-plumber": "^1.2.0"
+    "gulp-plumber": "^1.2.0",
+    "gulp-prettier": "^2.1.0",
+    "prettier": "^1.18.2"
   },
   "scripts": {
     "dev": "gulp",

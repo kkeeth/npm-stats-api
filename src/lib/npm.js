@@ -14,7 +14,7 @@ module.exports = {
          }
          else {
             // server or network error is occured
-            cb('Error', "An error has occurred. Please try again later, sorry.")
+            cb('Error', 'An error has occurred. Please try again later, sorry')
          }
       })
    },
