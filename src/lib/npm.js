@@ -7,20 +7,19 @@ module.exports = {
          json: true
       }, (err, res, body) => {
         if (!err) {
+           let message = null
            switch(res.statusCode) {
-              case 200:
-                 cb(null, body)
-                 break
               case 400:
-                 cb('Invalid data', body)
+                 message = 'Invalid data'
                  break
               case 404:
-                 cb('Package not found', body)
+                 message = 'Package not found'
                  break
               case 412:
-                 cb('Precondition failed', body)
+                 message = 'Precondition failed'
                  break
            }
+           cb(message, body)
         } else {
           cb('Error', 'An error has occurred. Please try again later, sorry')
         }
