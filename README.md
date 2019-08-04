@@ -1,3 +1,7 @@
+[![npm version](https://badge.fury.io/js/cmd-ranking.svg)](https://badge.fury.io/js/npm-stats-api)
+[![Build Status](https://travis-ci.org/k-kuwahara/npm-stats-api.svg?branch=master)](https://travis-ci.org/k-kuwahara/npm-stats-api)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 # npm-stats-api
 
 Node Package's Statistics API
