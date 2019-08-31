@@ -14,7 +14,7 @@ const babelrc = {
          '@babel/preset-env',
          {
             targets: {
-               node: true
+               browsers: ["last 2 versions"]
             }
          }
       ]
