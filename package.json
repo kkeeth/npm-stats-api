@@ -1,19 +1,21 @@
 {
   "name": "npm-stats-api",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
   "dependencies": {
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "ava": "^1.4.1",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "ava": "^2.3.0",
     "babel": "^6.23.0",
     "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
-    "gulp-plumber": "^1.2.0"
+    "gulp-plumber": "^1.2.1",
+    "gulp-prettier": "^2.1.0",
+    "prettier": "^1.18.2"
   },
   "scripts": {
     "dev": "gulp",

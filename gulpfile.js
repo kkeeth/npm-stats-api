@@ -1,6 +1,7 @@
-const gulp    = require("gulp"),
-      babel   = require("gulp-babel"),
-      plumber = require('gulp-plumber')
+const gulp  = require("gulp"),
+      babel = require("gulp-babel"),
+      prettier = require('gulp-prettier'),
+      plumber  = require('gulp-plumber')
 
 const path = {
    "index": "./src/index.js",
@@ -13,7 +14,7 @@ const babelrc = {
          '@babel/preset-env',
          {
             targets: {
-               node: true
+               browsers: ["last 2 versions"]
             }
          }
       ]
@@ -28,6 +29,10 @@ gulp.task('babel:lib', () => {
          }
       }))
       .pipe(babel(babelrc))
+      .pipe(prettier({
+        singleQuote: true,
+        semi: false
+      }))
       .pipe(gulp.dest('./lib'))
 })
 
