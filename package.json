@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/k-kuwahara/npm-stats-api.git"
+    "url": "git+https://github.com/kkeeth/npm-stats-api.git"
   },
   "keywords": [
     "api",
@@ -40,7 +40,10 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/k-kuwahara/npm-stats-api/issues"
+    "url": "https://github.com/kkeeth/npm-stats-api/issues"
   },
-  "homepage": "https://github.com/k-kuwahara/npm-stats-api#readme"
+  "homepage": "https://github.com/kkeeth/npm-stats-api#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }

@@ -58,13 +58,13 @@ $ node app.js
 
 # License
 
-[MIT](https://github.com/k-kuwahara/npm-stats-api/blob/master/LICENSE)
+[MIT](https://github.com/kkeeth/npm-stats-api/blob/master/LICENSE)
 
 # Any issue or want more features? Contact me!
 
 This module has been tested under limited scenarios. If you find any issue please feel free to report via one of the below platforms:
 
-Github: <a href="https://github.com/k-kuwahara/npm-stats-api/issues">npm-stats-api</a><br>
+Github: <a href="https://github.com/kkeeth/npm-stats-api/issues">npm-stats-api</a><br>
 Email: zensin0082@gmail.com<br>
 Twitter: <a href="https://twitter.com/kuwahara_jsri" target="_blank">@kuwahara_jsri</a>
 
