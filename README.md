@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/npm-stats-api.svg)](https://badge.fury.io/js/npm-stats-api)
-[![Build Status](https://travis-ci.org/k-kuwahara/npm-stats-api.svg?branch=master)](https://travis-ci.org/k-kuwahara/npm-stats-api)
+[![Build Status](https://travis-ci.org/kkeeth/npm-stats-api.svg?branch=master)](https://travis-ci.org/kkeeth/npm-stats-api)
 [![Code Climate](https://codeclimate.com/github/k-kuwahara/npm-stats-api/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/npm-stats-api)
 ![node](https://img.shields.io/badge/node-%3E%3D%2010.16.0-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
