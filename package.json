@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "gulp",
-    "test": "ava ./test --verbose"
+    "test": "ava ./test/* --verbose"
   },
   "repository": {
     "type": "git",

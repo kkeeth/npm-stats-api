@@ -1,2 +1,8 @@
-const npm = require('../lib/npm')
-const test = require('ava')
+import npm from '../lib/npm'
+import test from 'ava'
+
+test('check the operation of ava', t => {
+  t.pass()
+})
+
+
