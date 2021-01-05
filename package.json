@@ -15,11 +15,17 @@
     "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-prettier": "^2.1.0",
+    "husky": "^4.3.6",
     "prettier": "^1.18.2"
   },
   "scripts": {
     "dev": "gulp",
     "test": "ava ./test/* --verbose"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
   },
   "repository": {
     "type": "git",

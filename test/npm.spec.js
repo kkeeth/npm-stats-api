@@ -41,7 +41,7 @@ test.cb(
   "should return download stat when valid variables are passed it",
   (t) => {
     const expectValues = {
-      downloads: 195,
+      downloads: 197,
       start: "2020-01-01",
       end: "2020-08-01",
       package: "npm-stats-api",
