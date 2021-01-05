@@ -6,18 +6,18 @@ test("check the operation of ava", (t) => {
 });
 
 test("should throw error when any variables are not passed it", (t) => {
-  t.throws(() => npm.load(), "callback function is a required argument");
+  t.throws(() => npm.load(), { message: "callback function is a required argument" });
 });
 
 test("should throw error when invalid url is passed but cb is not passed it", (t) => {
   t.throws(
     () => npm.load("hogehoge"),
-    "callback function is a required argument"
+    { message: "callback function is a required argument" }
   );
 });
 
 test("should throw error when invalid url and cb are passed it", (t) => {
-  t.throws(() => npm.load("hogehoge", () => {}), 'Invalid URI "hogehoge"');
+  t.throws(() => npm.load("hogehoge", () => {}), { message: 'Invalid URI "hogehoge"' });
 });
 
 test("should throw error when valid url is passed but cb is not passed it", (t) => {
@@ -26,14 +26,14 @@ test("should throw error when valid url is passed but cb is not passed it", (t) 
       npm.load(
         "https://api.npmjs.org/downloads/point/2020-01-01:2020-08-01/npm-stats-api"
       ),
-    "callback function is a required argument"
+    { message: "callback function is a required argument" }
   );
 });
 
 test("should throw error when url is not passed and cb is passed it", (t) => {
   t.throws(
     () => npm.load(undefined, () => {}),
-    "options.uri is a required argument"
+    { message: "options.uri is a required argument" }
   );
 });
 
