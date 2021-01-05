@@ -21,6 +21,7 @@
   },
   "scripts": {
     "dev": "gulp",
+    "format": "prettier --write 'test/*'",
     "test": "ava ./test/* --verbose"
   },
   "husky": {
