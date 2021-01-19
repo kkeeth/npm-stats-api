@@ -30,7 +30,7 @@ i. Get Stats of Package
 
 ```js
 
-const npm = require('npm-stat-api');
+const npm = require('npm-stats-api');
 
 // Parameters:
 // 1. Package Name
