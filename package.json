@@ -15,7 +15,7 @@
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
     "gulp-plumber": "1.2.1",
-    "gulp-prettier": "3.0.0",
+    "gulp-prettier": "4.0.0",
     "husky": "4.3.8",
     "prettier": "2.3.2"
   },
