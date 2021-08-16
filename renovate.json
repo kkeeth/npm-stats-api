@@ -1,5 +1,23 @@
 {
   "extends": [
     "config:base"
+  ],
+  "timezone": "Asia/Tokyo",
+  "labels": ["renovate"],
+  "patch": {
+    "automerge": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
   ]
 }
