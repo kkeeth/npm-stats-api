@@ -4,15 +4,12 @@
   ],
   "timezone": "Asia/Tokyo",
   "labels": ["renovate"],
-  "patch": {
-    "automerge": true
-  },
   "lockFileMaintenance": {
     "enabled": true
   },
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
