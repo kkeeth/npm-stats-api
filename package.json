@@ -4,7 +4,7 @@
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
