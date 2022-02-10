@@ -62,7 +62,15 @@ If you want to try it easily at hand, please clone this repository and run the `
 $ node app.js
 ```
 
-# License
+# ⚠ Limits ⚠
+
+Bulk queries are limited to at most 128 packages at a time and at most 365 days of data.
+
+All other queries are limited to at most 18 months of data. The earliest date for which data will be returned is January 10, 2015.
+
+source (e.g. quotation): https://github.com/npm/registry/blob/master/docs/download-counts.md#limits
+
+# License 
 
 [MIT](https://github.com/kkeeth/npm-stats-api/blob/master/LICENSE)
 
