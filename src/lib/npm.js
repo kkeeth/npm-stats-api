@@ -1,32 +1,31 @@
-const request = require("request");
+const request = require("superagent");
 
 module.exports = {
   load: function(url, cb) {
-    try {
-      if (cb === undefined) throw "callback function is a required argument";
+    if (cb === undefined) throw "callback function is a required argument";
 
-      request({ url: url, json: true }, (err, res, body) => {
-        if (!err) {
-          let status = null;
-          switch (res.statusCode) {
-            case 400:
-              status = "Invalid data";
-              break;
-            case 404:
-              status = "Package not found";
-              break;
-            case 412:
-              status = "Precondition failed";
-              break;
-          }
-          cb(status, body);
-        } else {
-          throw err.message;
+    request
+      .get(url)
+      .set('accept', 'json')
+      .timeout({
+        response: 3 * 1000,
+        deadline: 5 * 1000,
+      })
+      .end((err, res) => {
+        // for 5xx error
+        if (!res) {
+          throw new Error(err.message);
         }
-      });
-    } catch (e) {
-      throw new Error(e);
-    }
+
+        // for 4xx error
+        if (err) {
+          console.log(err.message)
+          cb(err, res.body)
+        } else {
+          // for 200 ok
+          cb(null, res.body);
+        }
+      })
   },
   stat: function(pkg, start, end, cb) {
     const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg}`;
