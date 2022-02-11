@@ -10,14 +10,15 @@ const isValidDate = (dateStr, format = "YYYY-MM-DD") => {
 };
 
 const isValidURL = (urlStr) => {
-  const regexpURL = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g;
-  return regexpURL.test(urlStr);
+  const regexpStatURL = new RegExp(statMethodBaseURL);
+  const regexpDetailsURL = new RegExp(detailsMethodBaseURL);
+  return regexpStatURL.test(urlStr) || regexpDetailsURL.test(urlStr);
 };
 
 const getDateFromURL = (urlStr) => {
-  const regexpURL = new RegExp(`${statMethodBaseURL}(.*):(.*)`);
-  const matches = urlStr.match(regexpURL)
-  console.log(matches)
+  const regexpURL = new RegExp(`${statMethodBaseURL}(.*):(.*)/.*`);
+  const matches = urlStr.match(regexpURL);
+  return [matches[1], matches[2]];
 };
 
 const usualReturn = {
@@ -31,14 +32,35 @@ const usualReturn = {
   }
 }
 
+const errorReturn = (err) => ({
+  ...err,
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'api.npmjs.org',
+  response: undefined
+});
+
 const superagent = {
-  get: (urlStr) => {
-    if (!isValidURL(urlStr)) throw new Error(`getaddrinfo ENOTFOUND ${urlStr}`)
-    return getDateFromURL(urlStr)
-    // if (isValidDate())
-  },
-  timeout: jest.fn(),
-  end: (res) => jest.fn().mockResolvedValue(res)
+  get: (urlStr) => ({
+    timeout: () => ({
+      end: () => {
+        if (!isValidURL(urlStr))
+          throw new Error(`getaddrinfo ENOTFOUND ${urlStr}`);
+
+        const [start, end] = getDateFromURL(urlStr)
+        if (isValidDate(start) && isValidDate(end)) {
+          return {
+            ...jest.fn().mockResolvedValue(usualReturn)
+          }
+        } else {
+          return {
+            ...jest.fn().mockRejectedValue(errorReturn(new Error(`getaddrinfo ENOTFOUND ${urlStr}`)))
+          }
+        }
+      }
+    })
+  })
 };
 
 module.exports = superagent;

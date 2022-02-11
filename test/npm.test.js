@@ -1,6 +1,8 @@
 const load = require("../lib/request");
 const { stat, details } = require("../lib/npm");
 
+jest.disableAutomock();
+
 describe("throw error pattern", () => {
   test("load method: should throw error when any variables are not passed it", () => {
     expect(() => load()).toThrow(
@@ -56,14 +58,6 @@ describe("throw error pattern", () => {
   test("details method: should throw error when package name is passed but cb is not passed it", () => {
     expect(() => details("check-stats-modules")).toThrow(
       "callback function is a required argument"
-    );
-  });
-});
-
-describe("application error pattern", () => {
-  test("load method: should throw error when any variables are not passed it", () => {
-    expect(() => load()).toThrow(
-      "request URL is a required argument"
     );
   });
 });
