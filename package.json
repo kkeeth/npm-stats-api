@@ -11,19 +11,19 @@
     "superagent": "^7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
     "ava": "^3.15.0",
-    "babel": "^6.23.0",
     "dayjs": "^1.10.7",
+    "jest": "^27.5.1",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel": "^6.23.0",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-prettier": "^3.0.0",
-    "husky": "^4.3.6",
-    "jest": "^27.5.1",
-    "prettier": "^2.2.1"
+    "gulp-prettier": "^4.0.0",
+    "husky": "^7.0.1",
+    "prettier": "^2.3.2"
   },
   "scripts": {
     "dev": "gulp",
