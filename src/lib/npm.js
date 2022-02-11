@@ -2,11 +2,11 @@ const request = require("superagent");
 
 module.exports = {
   load: function(url, cb) {
+    if (url === undefined) throw new Error("request URL is a required argument");
     if (cb === undefined) throw new Error("callback function is a required argument");
 
     request
       .get(url)
-      .set('accept', 'json')
       .timeout({
         response: 3 * 1000,
         deadline: 5 * 1000,
