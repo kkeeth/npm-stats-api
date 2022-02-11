@@ -4,8 +4,8 @@ const gulp  = require("gulp"),
       plumber  = require('gulp-plumber')
 
 const path = {
-   "index": "./src/index.js",
-   "lib"  : "./src/lib/*.js"
+   index: "./src/index.js",
+   lib: "./src/lib/*.js",
 }
 
 const babelrc = {
@@ -15,10 +15,10 @@ const babelrc = {
          {
             targets: {
                browsers: ["last 2 versions"]
-            }
+            },
          }
       ]
-   ]
+   ],
 }
 
 gulp.task('babel:lib', () => {
