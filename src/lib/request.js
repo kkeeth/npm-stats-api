@@ -1,6 +1,7 @@
 import request from "superagent";
 
-export default (url, cb) => {
+const load = (url, cb) => {
+  if (url === undefined) throw new Error("request URL is a required argument");
   if (cb === undefined) throw new Error("callback function is a required argument");
 
   request
@@ -22,3 +23,5 @@ export default (url, cb) => {
       }
     });
 };
+
+module.exports = load;

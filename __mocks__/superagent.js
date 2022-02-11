@@ -38,12 +38,7 @@ const superagent = {
     // if (isValidDate())
   },
   timeout: jest.fn(),
-  end: (res) => {
-    return Promise.resolve().then(() => {
-      return "hoge"
-    })
-  }
-}
-
+  end: (res) => jest.fn().mockResolvedValue(res)
+};
 
 module.exports = superagent;

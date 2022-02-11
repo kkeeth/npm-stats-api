@@ -2,7 +2,7 @@ import load from "./request"
 
 const checkProperties = (pkg, cb) => {
   if (!pkg) {
-    throw new Error("request URL is a required argument");
+    throw new Error("package name is a required argument");
   }
   if (!cb) {
     throw new Error("callback function is a required argument");
