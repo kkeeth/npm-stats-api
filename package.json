@@ -28,7 +28,8 @@
   "scripts": {
     "dev": "gulp",
     "format": "prettier --write 'test/*'",
-    "test": "jest ./test/*"
+    "test": "jest ./test/*",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
