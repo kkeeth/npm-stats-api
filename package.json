@@ -1,28 +1,34 @@
 {
   "name": "npm-stats-api",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
+  "files": [
+    "lib/*.js",
+    "app.js"
+  ],
   "dependencies": {
-    "request": "^2.88.0"
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.17.2",
-    "@babel/preset-env": "7.16.11",
-    "ava": "4.0.1",
-    "babel": "6.23.0",
-    "esm": "3.2.25",
-    "gulp": "4.0.2",
-    "gulp-babel": "8.0.0",
-    "gulp-plumber": "1.2.1",
-    "gulp-prettier": "4.0.0",
-    "husky": "7.0.4",
-    "prettier": "2.5.1"
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "babel": "^6.23.0",
+    "dayjs": "^1.10.7",
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "dev": "gulp",
     "format": "prettier --write 'test/*'",
-    "test": "ava ./test/* --verbose"
+    "test": "jest ./test/*",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -57,5 +63,8 @@
   "bugs": {
     "url": "https://github.com/kkeeth/npm-stats-api/issues"
   },
-  "homepage": "https://github.com/kkeeth/npm-stats-api#readme"
+  "homepage": "https://github.com/kkeeth/npm-stats-api#readme",
+  "volta": {
+    "node": "16.14.0"
+  }
 }
