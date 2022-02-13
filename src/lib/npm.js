@@ -1,25 +1,23 @@
-import load from "./request"
-
-const checkProperties = (pkg, cb) => {
-  if (!pkg) {
-    throw new Error("package name is a required argument");
-  }
-  if (!cb) {
-    throw new Error("callback function is a required argument");
-  }
-}
+import load from "./request";
+import formatResponse from "./formatResponse";
 
 module.exports = {
-  stat: (pkg, start, end, cb) => {
-    checkProperties(pkg, cb);
+  stat: (pkg, start, end) => {
+    if (!pkg) {
+      return Promise.reject().catch(() => formatResponse(400, Error("package name is a required argument")));
+    }
 
     const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg}`;
-    load(url, cb);
+    return load(url)
+      .then(ret => formatResponse(ret.status, ret))
   },
-  details: (pkg, cb) => {
-    checkProperties(pkg, cb);
+  details: (pkg) => {
+    if (!pkg) {
+      return Promise.reject().catch(() => formatResponse(400, Error("package name is a required argument")));
+    }
 
     const url = `https://registry.npmjs.org/${pkg}`;
-    load(url, cb);
+    return load(url)
+      .then(ret => formatResponse(ret.status, ret))
   },
 };
