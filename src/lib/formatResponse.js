@@ -1,14 +1,12 @@
 /**
  * format a data object from npm API
  *
- * @param {String} statusCode: HTTP status code
- * @param {Object} formData: API response body
+ * @param {Object} res: API response body
+ * @returns {Object} object from npm API status code and response body
  */
- const formatResponse = (statusCode, body) => {
-  return {
-    statusCode: statusCode,
-    body: body,
-  }
-};
+ const formatResponse = (res) => ({
+  statusCode: res.statusCode,
+  body: res.body,
+});
 
 module.exports = formatResponse;

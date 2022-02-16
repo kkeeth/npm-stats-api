@@ -26,6 +26,8 @@
   },
   "scripts": {
     "dev": "gulp",
+    "babel:index": "gulp babel:index",
+    "babel:lib": "gulp babel:lib",
     "format": "prettier --write 'test/*'",
     "test": "jest ./test/*",
     "prepare": "husky install"

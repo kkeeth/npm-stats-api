@@ -26,30 +26,66 @@ $ npm install npm-stats-api --save
 
 # Usage
 
-i. Get Stats of Package
-
-```js
-const npm = require('npm-stats-api');
-
-// Parameters:
-// 1. Package Name
-// 2. Start Date
-// 3. End Date
-npm.stat("check-stats-modules", "2018-07-20", "2018-08-20", (err, res) => {
-  console.log(JSON.stringify(res));
-});
-```
-
-ii. Get Details of Package
+i. Get package's stats
 
 ```js
 const npm = require("npm-stats-api");
 
 // Parameters:
-// 1. Package name
-npm.details("check-stats-modules", (err, res) => {
-  console.log(JSON.stringify(res));
+// 1. Package Name
+// 2. Start Date
+// 3. End Date
+npm.stat("npm-stats-api", "2022-01-01", "2022-02-15").then(res => {
+  console.log(res);
 });
+
+// if you use async/await
+import npm from "npm-stats-api";
+(async () => {
+  const res = await npm.stat("npm-stats-api", "2022-01-01", "2022-02-15");
+  console.log(res);
+})();
+
+
+// response format
+{
+  statusCode: 200,
+  body: {
+    downloads: 572,
+    start: '2022-01-01',
+    end: '2022-02-15',
+    package: 'npm-stats-api'
+  }
+}
+```
+
+ii. Get package's details
+
+```js
+const npm = require("npm-stats-api");
+
+// Parameters:
+//   Package name
+npm.details("npm-stats-api").then(res => {
+  console.log(res);
+});
+```
+
+iii. Error handling
+
+```js
+// e.g. 5xx errors
+npm.details("npm-stats-api").then(res => {
+  if (res.statusCode === 500) {
+    // some kind of processing
+  }
+});
+
+// use es module
+const res = await npm.stat("npm-stats-api", "2022-01-01", "2022-02-15");
+if (res.statusCode === 400) {
+  // some kind of processing
+}
 ```
 
 If you want to try it easily at hand, please clone this repository and run the `app.js` file on `nodejs`.
