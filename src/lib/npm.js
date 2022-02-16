@@ -1,25 +1,26 @@
-import load from "./request"
-
-const checkProperties = (pkg, cb) => {
-  if (!pkg) {
-    throw new Error("package name is a required argument");
-  }
-  if (!cb) {
-    throw new Error("callback function is a required argument");
-  }
-}
+import load from "./request";
 
 module.exports = {
-  stat: (pkg, start, end, cb) => {
-    checkProperties(pkg, cb);
-
-    const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg}`;
-    load(url, cb);
+  /**
+   * Get module stats
+   *
+   * @param {String} pkg: module name
+   * @param {String} start: Start date of search period
+   * @param {String} end: End date of search period
+   * @returns Promise object
+   */
+  stat: (pkg, start, end) => {
+    const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg ? pkg : ""}`;
+    return load(url)
   },
-  details: (pkg, cb) => {
-    checkProperties(pkg, cb);
-
-    const url = `https://registry.npmjs.org/${pkg}`;
-    load(url, cb);
+  /**
+   * Get module detail info
+   *
+   * @param {String} pkg: module name
+   * @returns Promise object
+   */
+  details: (pkg) => {
+    const url = `https://registry.npmjs.org/${pkg ? pkg : ""}`;
+    return load(url)
   },
 };

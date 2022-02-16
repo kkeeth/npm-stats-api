@@ -4,10 +4,12 @@
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "index.js",
   "files": [
+    "index.js",
     "lib/*.js",
     "app.js"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "superagent": "^7.1.1"
   },
   "devDependencies": {
@@ -26,6 +28,8 @@
   },
   "scripts": {
     "dev": "gulp",
+    "babel:index": "gulp babel:index",
+    "babel:lib": "gulp babel:lib",
     "format": "prettier --write 'test/*'",
     "test": "jest ./test/*",
     "prepare": "husky install"

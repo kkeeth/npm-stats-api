@@ -1,27 +1,45 @@
-const npm = require('./index')
+const npm = require("./index");
 
 // 200 ok pattern about 'stat' method
-npm.stat('check-stats-modules', '2018-01-01', '2019-05-01', (_err, res) => {
-   console.log("\n# ok pattern about stat method")
-   console.log(JSON.stringify(res))
-})
+npm
+  .stat("npm-stats-api", "2022-01-01", "2022-02-15")
+  .then(res => {
+    console.log("\n# ok pattern about stat method");
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
 // 200 ok pattern about 'details' method
-npm.details('check-stats-modules', (_err, res) => {
-   console.log("\n# ok pattern about details method")
-   console.log(res.description)
-})
+npm
+  .details("npm-stats-api")
+  .then(res => {
+    console.log("\n# ok pattern about stat method");
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
 // date format error pattern about 'stat' method
-npm.stat("check-stats-modules", 'hoge', '2019-05-01', (err, res) => {
-   console.log("\n# date format error pattern about stat method")
-   console.log(JSON.stringify(res))
-   console.log(`${err.name}: ${err.message}`)
-})
+npm
+  .stat("npm-stats-api", "hoge", "2022-02-15")
+  .then(res => {
+    console.log("\n# date format error pattern about stat method");
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
 // not found error pattern about 'details' method
-npm.stat("abcdefghijk", '2019-01-01', '2019-05-01', (err, res) => {
-   console.log("\n# not found error pattern about details method")
-   console.log(JSON.stringify(res))
-   console.log(`${err.name}: ${err.message}`)
-})
+npm
+  .stat("abcdefghijk", "2019-01-01", "2022-02-15")
+  .then(err => {
+    console.log("\n# not found error pattern about details method");
+    console.log(err);
+  })
+  .catch(err => {
+    console.log(err);
+  });

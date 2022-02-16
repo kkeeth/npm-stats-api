@@ -1,27 +1,30 @@
 import request from "superagent";
+import "babel-polyfill";
+import formatResponse from "./formatResponse";
+import NpmException from "./npmException";
 
-const load = (url, cb) => {
-  if (url === undefined) throw new Error("request URL is a required argument");
-  if (cb === undefined) throw new Error("callback function is a required argument");
-
-  request
-    .get(url)
-    .timeout({
-      response: 3 * 1000,
-      deadline: 5 * 1000,
-    })
-    .end((err, res) => {
-      if (!res) {
-        // for 5xx error
-        cb(err, res);
-      } else if (err) {
-        // for 4xx error
-        cb(err, res.body)
-      } else {
-        // for 200 ok
-        cb(null, res.body);
-      }
+/**
+ * Body module that calls the API
+ *
+ * @param {String} url: request URL with params
+ * @returns {Object} object from npm API status code and response body
+ */
+ const load = async (url) => {
+  try {
+    const { res, body } = await request
+      .get(url)
+      .timeout({
+        response: 3 * 1000,
+        deadline: 5 * 1000,
+      });
+    return formatResponse({
+      statusCode: res.statusCode,
+      body: body,
     });
+  } catch (err) {
+    const obj = new NpmException(err)
+    throw obj;
+  }
 };
 
 module.exports = load;

@@ -1,63 +1,126 @@
-const load = require("../lib/request");
 const { stat, details } = require("../lib/npm");
 
 jest.disableAutomock();
 
-describe("throw error pattern", () => {
-  test("load method: should throw error when any variables are not passed it", () => {
-    expect(() => load()).toThrow(
-      "request URL is a required argument"
+describe("Throw exception error", () => {
+  test("stat method: should receive 500 error when there is a network error", () => {
+    const error = {
+      body: {
+        code: "ENOTFOUND",
+        errno: -3008,
+        hostname: "api.npmjs.org",
+        message: "getaddrinfo ENOTFOUND api.npmjs.org",
+        response: undefined,
+        syscall: "getaddrinfo"
+      },
+      message: "getaddrinfo ENOTFOUND api.npmjs.org",
+      name: "NpmException",
+      statusCode: 500
+    };
+
+    // Name the module "network" to explicitly return stubs
+    // for network error patterns.
+    return expect(stat("network")).rejects.toEqual(error);
+  });
+
+  test("stat method: should receive 404 error when a non-existent package name is passed it", () => {
+    const error = {
+      message: "Not Found",
+      name: "NpmException",
+      statusCode: 404,
+      body: {
+        path: "/downloads/point/2022-01-01:2022-02-15/hoge",
+        error: "package hoge is not found"
+      }
+    };
+
+    return expect(stat("hoge", "2022-01-01", "2022-02-15")).rejects.toEqual(
+      error
     );
   });
 
-  test("load method: should throw error when invalid url is passed but cb is not passed it", () => {
-    expect(() => load("hogehoge")).toThrow(
-      "callback function is a required argument"
+  test("stat method: should receive 400 error when an arbitrary string is passed for start date", () => {
+    const error = {
+      message: "Bad Request",
+      name: "NpmException",
+      statusCode: 400,
+      body: {
+        path: "/downloads/point/hoge:2022-02-15/npm-stats-api",
+        error: "invalid date"
+      }
+    };
+
+    return expect(stat("npm-stats-api", "hoge", "2022-02-15")).rejects.toEqual(
+      error
     );
   });
 
-  test("load method: should throw error when valid url is passed but cb is not passed it", () => {
-    expect(() => load(
-      "https://api.npmjs.org/downloads/point/2020-01-01:2020-08-01/npm-stats-api"
-    )).toThrow(
-      "callback function is a required argument"
+  test("stat method: should receive 400 error when an arbitrary string is passed for end date", () => {
+    const error = {
+      message: "Bad Request",
+      name: "NpmException",
+      statusCode: 400,
+      body: {
+        path: "/downloads/point/2022-01-01:hoge/npm-stats-api",
+        error: "invalid date"
+      }
+    };
+
+    return expect(stat("npm-stats-api", "2022-01-01", "hoge")).rejects.toEqual(
+      error
     );
   });
 
-  test("load method: should throw error when invalid url and cb are passed it", () => {
-    expect(() => load("hogehoge", () => {})).toThrow(
-      "getaddrinfo ENOTFOUND hogehoge"
-    );
+  test("details method: should receive 500 error when there is a network error", () => {
+    const error = {
+      body: {
+        code: "ENOTFOUND",
+        errno: -3008,
+        hostname: "api.npmjs.org",
+        message: "getaddrinfo ENOTFOUND api.npmjs.org",
+        response: undefined,
+        syscall: "getaddrinfo"
+      },
+      message: "getaddrinfo ENOTFOUND api.npmjs.org",
+      name: "NpmException",
+      statusCode: 500
+    };
+
+    // Name the module "network" to explicitly return stubs
+    // for network error patterns.
+    return expect(details("network")).rejects.toEqual(error);
+  });
+});
+
+describe("Patterns that process normally", () => {
+  test("stat method: should receive 200 ok when a existent package name, valid start date and end date are passed it", () => {
+    const actual = {
+      statusCode: 200,
+      body: {
+        downloads: 1053,
+        start: "2018-01-01",
+        end: "2019-05-01",
+        package: "check-stats-modules"
+      }
+    };
+
+    return expect(
+      stat("npm-stats-api", "2022-01-01", "2022-02-15")
+    ).resolves.toEqual(actual);
   });
 
+  test("details method: should receive 200 ok when a existent package name is passed it", () => {
+    const actual = {
+      statusCode: 200,
+      body: {
+        "dist-tags": {
+          latest: "1.2.2"
+        },
+        license: "MIT",
+        name: "npm-stats-api"
+      }
+    };
 
-  test("load method: should throw error when url is not passed and cb is passed it", () => {
-    expect(() => load(undefined, () => {})).toThrow(
-      "request URL is a required argument"
-    );
-  });
-
-  test("stat method: should throw error when any variables are not passed it", () => {
-    expect(() => stat()).toThrow(
-      "package name is a required argument"
-    );
-  });
-
-  test("stat method: should throw error when package name is passed but cb is not passed it", () => {
-    expect(() => stat("check-stats-modules")).toThrow(
-      "callback function is a required argument"
-    );
-  });
-
-  test("details method: should throw error when any variables are not passed it", () => {
-    expect(() => details()).toThrow(
-      "package name is a required argument"
-    );
-  });
-
-  test("details method: should throw error when package name is passed but cb is not passed it", () => {
-    expect(() => details("check-stats-modules")).toThrow(
-      "callback function is a required argument"
-    );
+    return expect(details("npm-stats-api")).resolves.toEqual(actual);
   });
 });
