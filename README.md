@@ -35,9 +35,10 @@ const npm = require("npm-stats-api");
 // 1. Package Name
 // 2. Start Date
 // 3. End Date
-npm.stat("npm-stats-api", "2022-01-01", "2022-02-15").then(res => {
-  console.log(res);
-});
+npm.stat("npm-stats-api", "2022-01-01", "2022-02-15")
+  .then(res => {
+    console.log(res);
+  });
 
 // if you use async/await
 import npm from "npm-stats-api";
@@ -51,7 +52,7 @@ import npm from "npm-stats-api";
 {
   statusCode: 200,
   body: {
-    downloads: 572,
+    downloads: 628,
     start: '2022-01-01',
     end: '2022-02-15',
     package: 'npm-stats-api'
@@ -74,12 +75,12 @@ npm.details("npm-stats-api").then(res => {
 iii. Error handling
 
 ```js
-// e.g. 5xx errors
-npm.details("npm-stats-api").then(res => {
-  if (res.statusCode === 500) {
-    // some kind of processing
-  }
-});
+npm
+  .stat("npm-stats-api", "2022-01-01", "2022-02-15")
+  .then(res => console.log(res))
+  .catch(err => {
+    console.log(err);
+  });
 
 // use es module
 const res = await npm.stat("npm-stats-api", "2022-01-01", "2022-02-15");
