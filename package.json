@@ -10,11 +10,11 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "superagent": "^7.1.6"
+    "superagent": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.18.5",
-    "@babel/preset-env": "7.18.2",
+    "@babel/core": "7.18.6",
+    "@babel/preset-env": "7.18.6",
     "babel": "6.23.0",
     "dayjs": "1.11.3",
     "esm": "3.2.25",
@@ -23,7 +23,7 @@
     "gulp-plumber": "1.2.1",
     "gulp-prettier": "4.0.0",
     "husky": "8.0.1",
-    "jest": "28.1.1",
+    "jest": "28.1.3",
     "prettier": "2.7.1"
   },
   "scripts": {
@@ -69,6 +69,6 @@
   },
   "homepage": "https://github.com/kkeeth/npm-stats-api#readme",
   "volta": {
-    "node": "16.15.1"
+    "node": "16.16.0"
   }
 }
