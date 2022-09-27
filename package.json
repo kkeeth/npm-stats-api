@@ -13,8 +13,8 @@
     "superagent": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.19.1",
-    "@babel/preset-env": "7.19.1",
+    "@babel/core": "7.19.3",
+    "@babel/preset-env": "7.19.3",
     "babel": "6.23.0",
     "dayjs": "1.11.5",
     "esm": "3.2.25",
