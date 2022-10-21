@@ -16,7 +16,7 @@
     "@babel/core": "7.19.6",
     "@babel/preset-env": "7.19.4",
     "babel": "6.23.0",
-    "dayjs": "1.11.5",
+    "dayjs": "1.11.6",
     "esm": "3.2.25",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
