@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "superagent": "^8.0.0"
+    "superagent": "^8.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.20.2",
