@@ -1,4 +1,4 @@
-import load from "./request";
+const load = require("./request");
 
 module.exports = {
   /**

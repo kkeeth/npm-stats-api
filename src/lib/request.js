@@ -1,7 +1,8 @@
-import request from "superagent";
-import "babel-polyfill";
-import formatResponse from "./formatResponse";
-import NpmException from "./npmException";
+require("babel-polyfill");
+
+const request = require("superagent");
+const formatResponse = require("./formatResponse");
+const NpmException = require("./npmException");
 
 /**
  * Body module that calls the API
