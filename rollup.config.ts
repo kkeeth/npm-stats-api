@@ -5,7 +5,7 @@ import commonjs from "@rollup/plugin-commonjs";
 const config: RollupOptions = {
   input: "src/index.js",
   output: {
-    file: "dist/index.js",
+    file: "lib/index.js",
     format: "cjs"
   },
   plugins: [
