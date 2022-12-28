@@ -28,6 +28,7 @@ gulp.task("babel:lib", () => {
     .pipe(
       plumber({
         errorHandler: err => {
+          console.log("Build Error - babel:lib script \n")
           console.log(err);
         }
       })
@@ -48,6 +49,7 @@ gulp.task("babel:index", () => {
     .pipe(
       plumber({
         errorHandler: err => {
+          console.log("Build Error - babel:index script \n")
           console.log(err);
         }
       })
