@@ -13,10 +13,10 @@
     "superagent": "^8.0.3"
   },
   "devDependencies": {
-    "@babel/core": "7.20.2",
+    "@babel/core": "7.20.7",
     "@babel/preset-env": "7.20.2",
     "babel": "6.23.0",
-    "dayjs": "1.11.6",
+    "dayjs": "1.11.7",
     "esm": "3.2.25",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
@@ -24,7 +24,7 @@
     "gulp-prettier": "4.0.0",
     "husky": "8.0.2",
     "jest": "29.3.1",
-    "prettier": "2.7.1"
+    "prettier": "2.8.1"
   },
   "scripts": {
     "dev": "gulp",
@@ -69,6 +69,6 @@
   },
   "homepage": "https://github.com/kkeeth/npm-stats-api#readme",
   "volta": {
-    "node": "16.18.1"
+    "node": "18.12.1"
   }
 }
