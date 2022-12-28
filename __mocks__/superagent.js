@@ -1,9 +1,7 @@
 const usual200 = details =>
   details
     ? {
-        res: {
-          statusCode: 200
-        },
+        statusCode: 200,
         body: {
           name: "npm-stats-api",
           "dist-tags": { latest: "1.2.2" },
@@ -11,9 +9,7 @@ const usual200 = details =>
         }
       }
     : {
-        res: {
-          statusCode: 200
-        },
+        statusCode: 200,
         body: {
           downloads: 1053,
           start: "2018-01-01",
