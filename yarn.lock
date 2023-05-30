@@ -3183,9 +3183,9 @@ resolve@^1.14.2, resolve@^1.20.0, resolve@^1.22.1:
     supports-preserve-symlinks-flag "^1.0.0"
 
 rollup@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.9.0.tgz#0ff7ab7cd71ce3a6ab140c5cf661f2b35eb6aab8"
-  integrity sha512-nGGylpmblyjTpF4lEUPgmOw6OVxRvnI6Iuuh6Lz4O/X66cVOX1XJSsqP1YamxQ+mPuFE7qJxLFDSCk8rNv5dDw==
+  version "3.23.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.23.0.tgz#b8d6146dac4bf058ee817f92820988e9b358b564"
+  integrity sha512-h31UlwEi7FHihLe1zbk+3Q7z1k/84rb9BSwmBSr/XjOCEaBJ2YyedQDuM0t/kfOS0IxM+vk1/zI9XxYj9V+NJQ==
   optionalDependencies:
     fsevents "~2.3.2"
 
