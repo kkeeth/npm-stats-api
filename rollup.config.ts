@@ -1,15 +1,17 @@
 import type { RollupOptions } from "rollup";
 import babel from "@rollup/plugin-babel";
-import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
 
 const config: RollupOptions = {
-  input: "src/index.js",
+  input: "src/index.ts",
+  preserveModules: false,
   output: {
     file: "lib/index.js",
-    format: "cjs"
+    format: "cjs",
+    sourcemap: true,
   },
   plugins: [
-    commonjs(),
+    typescript(),
     babel({
       presets: [
         [
