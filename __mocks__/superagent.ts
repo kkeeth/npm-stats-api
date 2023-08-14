@@ -1,28 +1,26 @@
-const usual200 = details =>
-  details
+const version = require("../package.json").version;
+
+const usual200 = (details: boolean) => {
+  return details
     ? {
-        res: {
-          statusCode: 200
-        },
+        statusCode: 200,
         body: {
           name: "npm-stats-api",
-          "dist-tags": { latest: "1.2.2" },
+          "dist-tags": { latest: version },
           license: "MIT"
         }
       }
     : {
-        res: {
-          statusCode: 200
-        },
+        statusCode: 200,
         body: {
-          downloads: 1053,
-          start: "2018-01-01",
-          end: "2019-05-01",
-          package: "check-stats-modules"
+          downloads: 628,
+          start: "2022-01-01",
+          end: "2022-02-15",
+          package: "npm-stats-api"
         }
       };
-
-const error400 = start => ({
+    }
+const error400 = (start: boolean) => ({
   message: "Bad Request",
   status: 400,
   response: {
@@ -58,7 +56,7 @@ const error500 = {
 };
 
 const superagent = {
-  get: urlStr => {
+  get: (urlStr: string) => {
     const { pkg, start, end } = getParams(urlStr);
     const isDetails = /registry/.test(urlStr);
     return {
@@ -73,7 +71,7 @@ const superagent = {
   }
 };
 
-const getParams = url => {
+const getParams = (url: string) => {
   const params = url.split("/");
   const pkg = params[params.length - 1];
   const [start, end] = params[params.length - 2].split(":");

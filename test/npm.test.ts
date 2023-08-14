@@ -97,10 +97,10 @@ describe("Patterns that process normally", () => {
     const actual = {
       statusCode: 200,
       body: {
-        downloads: 1053,
-        start: "2018-01-01",
-        end: "2019-05-01",
-        package: "check-stats-modules"
+        downloads: 628,
+        start: "2022-01-01",
+        end: "2022-02-15",
+        package: "npm-stats-api"
       }
     };
 
@@ -114,7 +114,7 @@ describe("Patterns that process normally", () => {
       statusCode: 200,
       body: {
         "dist-tags": {
-          latest: "1.2.2"
+          latest: "1.2.3"
         },
         license: "MIT",
         name: "npm-stats-api"
