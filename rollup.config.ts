@@ -10,6 +10,7 @@ const config: RollupOptions = {
     format: "cjs",
     sourcemap: true,
   },
+  external: ['superagent'],
   plugins: [
     typescript(),
     babel({
