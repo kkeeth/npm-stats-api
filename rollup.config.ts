@@ -6,7 +6,7 @@ const config: RollupOptions = {
   input: "src/index.ts",
   preserveModules: false,
   output: {
-    file: "lib/index.js",
+    file: "index.js",
     format: "cjs",
     sourcemap: true,
   },

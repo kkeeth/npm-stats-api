@@ -1,4 +1,4 @@
-const npm = require("./lib");
+const npm = require("./");
 
 // 200 ok pattern about 'stat' method
 npm
