@@ -4,7 +4,7 @@
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "main": "lib/index.js",
   "files": [
-    "lib/*.js",
+    "lib",
     "app.js"
   ],
   "dependencies": {
