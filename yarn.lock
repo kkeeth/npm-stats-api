@@ -1290,9 +1290,9 @@
     "@babel/types" "^7.20.7"
 
 "@types/caseless@*":
-  version "0.12.3"
-  resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.3.tgz#8f7d6c8b536af838966b77ce73d63562561d2b92"
-  integrity sha512-ZD/NsIJYq/2RH+hY7lXmstfp/v9djGt9ah+xRQ3pcgR79qiKsG4pLl25AI7IcXxVO8dH9GiBE5rAknC0ePntlw==
+  version "0.12.4"
+  resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.4.tgz#1326429a519cc077028150343fd502b04686bd6f"
+  integrity sha512-2in/lrHRNmDvHPgyormtEralhPcN3An1gLjJzj2Bw145VBxkQ75JEXW6CTdMAwShiHQcYsl2d10IjQSdJSJz4g==
 
 "@types/cookiejar@*":
   version "2.1.2"
@@ -1351,9 +1351,9 @@
     undici-types "~5.26.4"
 
 "@types/request@^2.48.8":
-  version "2.48.10"
-  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.10.tgz#53dca1bb357849bab6e7d9c0888408c99f79a97c"
-  integrity sha512-18CiR2ITJ1ea8/lQyHaCC2M3ypv76lK4egpUY2ve03kq/lU+xQmPp2H4N5BKVHGQuDm2uqb1IC6Fqv8eYp4wng==
+  version "2.48.11"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.11.tgz#04b597ea308418422f7901c9a52b24967a2c4ed2"
+  integrity sha512-HuihY1+Vss5RS9ZHzRyTGIzwPTdrJBkCm/mAeLRYrOQu/MGqyezKXWOK1VhCnR+SDbp9G2mRUP+OVEqCrzpcfA==
   dependencies:
     "@types/caseless" "*"
     "@types/node" "*"
@@ -1374,9 +1374,9 @@
     "@types/node" "*"
 
 "@types/tough-cookie@*":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.3.tgz#3d06b6769518450871fbc40770b7586334bdfd90"
-  integrity sha512-THo502dA5PzG/sfQH+42Lw3fvmYkceefOspdCwpHRul8ik2Jv1K8I5OZz1AT3/rs46kwgMCe9bSBmDLYkkOMGg==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.4.tgz#cf2f0c7c51b985b6afecea73eb2cd65421ecb717"
+  integrity sha512-95Sfz4nvMAb0Nl9DTxN3j64adfwfbBPEYq14VN7zT5J5O2M9V6iZMIIQU1U+pJyl9agHYHNCqhCXgyEtIRRa5A==
 
 "@types/yargs-parser@*":
   version "21.0.2"
