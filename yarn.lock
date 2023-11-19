@@ -1295,9 +1295,9 @@
   integrity sha512-hWtVTC2q7hc7xZ/RLbxapMvDMgUnDvKvMOpKal4DrMyfGBUfB1oKaZlIRr6mJL+If3bAP6sV/QneGzF6tJjZDg==
 
 "@types/cookiejar@*":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@types/cookiejar/-/cookiejar-2.1.3.tgz#c54976fb8f3a32ea8da844f59f0374dd39656e13"
-  integrity sha512-LZ8SD3LpNmLMDLkG2oCBjZg+ETnx6XdCjydUE0HwojDmnDfDUnhMKKbtth1TZh+hzcqb03azrYWoXLS8sMXdqg==
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@types/cookiejar/-/cookiejar-2.1.4.tgz#d3fe9c70f026237239ef57dd9d41c87f978b63b5"
+  integrity sha512-b698BLJ6kPVd6uhHsY7wlebZdrWPXYied883PDSzpJZYOP97EOn/oGdLCH3jJf157srkFReIZY5v0H1s8Dozrg==
 
 "@types/estree@*", "@types/estree@^1.0.0":
   version "1.0.4"
@@ -1339,9 +1339,9 @@
     pretty-format "^29.0.0"
 
 "@types/node@*":
-  version "20.8.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.10.tgz#a5448b895c753ae929c26ce85cab557c6d4a365e"
-  integrity sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==
+  version "20.9.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.9.2.tgz#002815c8e87fe0c9369121c78b52e800fadc0ac6"
+  integrity sha512-WHZXKFCEyIUJzAwh3NyyTHYSR35SevJ6mZ1nWwJafKtiQbqRTIKSRcw3Ma3acqgsent3RRDqeVwpHntMk+9irg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -1361,9 +1361,9 @@
   integrity sha512-g7CK9nHdwjK2n0ymT2CW698FuWJRIx+RP6embAzZ2Qi8/ilIrA1Imt2LVSeHUzKvpoi7BhmmQcXz95eS0f2JXw==
 
 "@types/superagent@^4.1.18":
-  version "4.1.20"
-  resolved "https://registry.yarnpkg.com/@types/superagent/-/superagent-4.1.20.tgz#9248f55ac588794568f02fe9cac6d6ff2650b660"
-  integrity sha512-GfpwJgYSr3yO+nArFkmyqv3i0vZavyEG5xPd/o95RwpKYpsOKJYI5XLdxLpdRbZI3YiGKKdIOFIf/jlP7A0Jxg==
+  version "4.1.22"
+  resolved "https://registry.yarnpkg.com/@types/superagent/-/superagent-4.1.22.tgz#bb3b2d8fa8b2b1c1946e415708f1a6cf0824fd2f"
+  integrity sha512-GMaOrnnUsjChvH8zlzdDPARRXky8bU3E8xsU/fOclgqsINekbwDu1+wzJzJaGzZP91SGpOutf5Te5pm5M/qCWg==
   dependencies:
     "@types/cookiejar" "*"
     "@types/node" "*"
