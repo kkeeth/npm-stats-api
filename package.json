@@ -18,7 +18,7 @@
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/jest": "^29.5.3",
     "@types/request": "^2.48.8",
-    "@types/superagent": "^4.1.18",
+    "@types/superagent": "^8.0.0",
     "babel": "6.23.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
