@@ -1416,7 +1416,7 @@
   resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.5.tgz#db9468cb1b1b5a925b8f34822f1669df0c5472f5"
   integrity sha512-hWtVTC2q7hc7xZ/RLbxapMvDMgUnDvKvMOpKal4DrMyfGBUfB1oKaZlIRr6mJL+If3bAP6sV/QneGzF6tJjZDg==
 
-"@types/cookiejar@*":
+"@types/cookiejar@^2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@types/cookiejar/-/cookiejar-2.1.5.tgz#14a3e83fa641beb169a2dd8422d91c3c345a9a78"
   integrity sha512-he+DHOWReW0nghN24E1WUqM0efK4kI9oTqDm6XmK8ZPe2djZ90BSNdGnIyCLzCPw7/pogPlGbzI2wHGGmi4O/Q==
@@ -1460,6 +1460,11 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
+"@types/methods@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@types/methods/-/methods-1.1.4.tgz#d3b7ac30ac47c91054ea951ce9eed07b1051e547"
+  integrity sha512-ymXWVrDiCxTBE3+RIrrP533E70eA+9qu7zdWoHuOmGujkYtzf4HQF96b8nwHLqhuf4ykX61IGRIB38CC6/sImQ==
+
 "@types/node@*":
   version "20.10.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.6.tgz#a3ec84c22965802bf763da55b2394424f22bfbb5"
@@ -1482,12 +1487,13 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.3.tgz#6209321eb2c1712a7e7466422b8cb1fc0d9dd5d8"
   integrity sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==
 
-"@types/superagent@^4.1.18":
-  version "4.1.24"
-  resolved "https://registry.yarnpkg.com/@types/superagent/-/superagent-4.1.24.tgz#e1f9ad3b66a21ed13c047e8529009735732dde0a"
-  integrity sha512-mEafCgyKiMFin24SDzWN7yAADt4gt6YawFiNMp0QS5ZPboORfyxFt0s3VzJKhTaKg9py/4FUmrHLTNfJKt9Rbw==
+"@types/superagent@^8.0.0":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@types/superagent/-/superagent-8.1.1.tgz#dbc620c5df3770b0c3092f947d6d5e808adae2bc"
+  integrity sha512-YQyEXA4PgCl7EVOoSAS3o0fyPFU6erv5mMixztQYe1bqbWmmn8c+IrqoxjQeZe4MgwXikgcaZPiI/DsbmOVlzA==
   dependencies:
-    "@types/cookiejar" "*"
+    "@types/cookiejar" "^2.1.5"
+    "@types/methods" "^1.1.4"
     "@types/node" "*"
 
 "@types/tough-cookie@*":
