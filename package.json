@@ -4,8 +4,10 @@
   "description": "Node Package's Statistics API | Our functions will provide statistics of node package | This is a Node.js API wrapper for the NPM API and Registry. Based on the original npm-stat-api.",
   "files": [
     "index.js",
+    "index.d.ts",
     "app.js"
   ],
+  "types": "index.d.ts",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "superagent": "^8.1.2"
