@@ -4,11 +4,11 @@ import typescript from "@rollup/plugin-typescript";
 
 const config: RollupOptions = {
   input: "src/index.ts",
-  preserveModules: false,
   output: {
     file: "index.js",
     format: "cjs",
     sourcemap: true,
+    preserveModules: false,
   },
   external: ['superagent'],
   plugins: [
