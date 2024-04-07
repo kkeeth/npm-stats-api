@@ -29,7 +29,7 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "dev": "yarn build --watch",
+    "dev": "pnpm build --watch",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "format": "prettier --write 'test/*'",
     "test": "jest ./test/*",
