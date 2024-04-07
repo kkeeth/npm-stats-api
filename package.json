@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test"
+      "pre-push": "pnpm test"
     }
   },
   "ava": {
