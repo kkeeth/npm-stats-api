@@ -3,7 +3,7 @@ require("babel-polyfill");
 import request from "superagent";
 
 import NpmException from "./npmException";
-import {ErrorType} from "../types"
+import type { ErrorType } from "../../index.d"
 
 /**
  * Body module that calls the API

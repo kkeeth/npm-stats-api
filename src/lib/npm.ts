@@ -1,5 +1,5 @@
 import load from "./request";
-import { StatType, DetailType } from "../types";
+import type { StatType, DetailType } from "../../index.d";
 
 /**
  * Get module stats
