@@ -20,5 +20,5 @@ export type DetailType = Promise<{
     statusCode: number;
     body: object;
 }>;
-export declare function stat(pkg: string, start: Date, end: Date): StatType;
+export declare function stat(pkg: string, start: string, end: string): StatType;
 export declare function details(pkg: string): DetailType;
