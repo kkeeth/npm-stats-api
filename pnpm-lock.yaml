@@ -24,7 +24,7 @@ devDependencies:
     version: 6.0.4(@babel/core@7.24.5)(rollup@4.18.0)
   '@rollup/plugin-commonjs':
     specifier: ^25.0.0
-    version: 25.0.7(rollup@4.18.0)
+    version: 25.0.8(rollup@4.17.2)
   '@rollup/plugin-typescript':
     specifier: ^11.0.0
     version: 11.1.6(rollup@4.18.0)(tslib@2.6.2)(typescript@5.4.5)
@@ -1561,8 +1561,8 @@ packages:
       rollup: 4.18.0
     dev: true
 
-  /@rollup/plugin-commonjs@25.0.7(rollup@4.18.0):
-    resolution: {integrity: sha512-nEvcR+LRjEjsaSsc4x3XZfCCvZIaSMenZu/OiwOKGN2UhQpAYI7ru7czFvyWbErlpoGjnSX3D5Ch5FcMA3kRWQ==}
+  /@rollup/plugin-commonjs@25.0.8(rollup@4.17.2):
+    resolution: {integrity: sha512-ZEZWTK5n6Qde0to4vS9Mr5x/0UZoqCxPVR9KRUjU4kA2sO7GEUn1fop0DAwpO6z0Nw/kJON9bDmSxdWxO/TT1A==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -2540,6 +2540,7 @@ packages:
   /glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
+    deprecated: Glob versions prior to v9 are no longer supported
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
