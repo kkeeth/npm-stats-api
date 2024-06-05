@@ -114,7 +114,7 @@ describe("Patterns that process normally", () => {
       statusCode: 200,
       body: {
         "dist-tags": {
-          latest: "2.1.1"
+          latest: "2.1.2"
         },
         license: "MIT",
         name: "npm-stats-api"
