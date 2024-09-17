@@ -9,7 +9,7 @@ import type { StatType, DetailType } from "../../index.d";
  * @param {String} end: End date of search period
  * @returns Promise object
  */
-const stat = (pkg: string, start: string, end: string): StatType => {
+export const stat = (pkg: string, start: string, end: string): StatType => {
   const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg ? pkg : ""}`;
   return load(url)
 };
@@ -21,9 +21,7 @@ const stat = (pkg: string, start: string, end: string): StatType => {
  * @param {String} pkg: module name
  * @returns Promise object
  */
-const details =  (pkg: string): DetailType => {
+export const details =  (pkg: string): DetailType => {
   const url = `https://registry.npmjs.org/${pkg ? pkg : ""}`;
   return load(url)
 };
-
-module.exports = { stat, details }

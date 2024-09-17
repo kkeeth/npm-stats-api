@@ -52,12 +52,8 @@ function __generator(thisArg, body) {
     f,
     y,
     t,
-    g;
-  return g = {
-    next: verb(0),
-    "throw": verb(1),
-    "return": verb(2)
-  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+    g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+  return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function () {
     return this;
   }), g;
   function verb(n) {
@@ -211,10 +207,11 @@ var details = function (pkg) {
     var url = "https://registry.npmjs.org/".concat(pkg ? pkg : "");
     return load(url);
 };
-module.exports = { stat: stat, details: details };
 
 var npm = /*#__PURE__*/Object.freeze({
-    __proto__: null
+    __proto__: null,
+    details: details,
+    stat: stat
 });
 
 exports.npm = npm;

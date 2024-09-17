@@ -20,5 +20,5 @@ export type DetailType = Promise<{
     statusCode: number;
     body: object;
 }>;
-export declare function stat(pkg: string, start: string, end: string): StatType;
-export declare function details(pkg: string): DetailType;
+export declare const stat: (pkg: string, start: string, end: string) => StatType;
+export declare const details: (pkg: string) => DetailType;
