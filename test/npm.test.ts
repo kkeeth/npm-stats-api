@@ -1,4 +1,4 @@
-const { stat, details } = require("../");
+const {stat, details} = require("../").npm;
 
 jest.disableAutomock();
 
