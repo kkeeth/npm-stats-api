@@ -24,7 +24,7 @@ npm
 npm
   .stat("npm-stats-api", "hoge", "2022-02-15")
   .then(res => {
-    console.log(res);
+    console.log("status:", res);
   })
   .catch(err => {
     console.log("\n# date format error pattern about stat method");
@@ -34,8 +34,8 @@ npm
 // not found error pattern about 'stat' method
 npm
   .stat("abcdefghijklm", "2019-01-01", "2022-02-15")
-  .then(err => {
-    console.log(err);
+  .then(res => {
+    console.log("status:", res);
   })
   .catch(err => {
     console.log("\n# not found error pattern about details method");
