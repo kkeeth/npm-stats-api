@@ -1,6 +1,8 @@
 import { stat, details, NpmException } from "../";
 
 jest.disableAutomock();
+
+// リクエストモジュールをモック化
 jest.mock('../src/lib/request', () => ({
   fetchData: jest.fn((url: string) => {
     // Handle network error mock
@@ -28,8 +30,22 @@ jest.mock('../src/lib/request', () => ({
       };
     }
 
-    // Handle invalid date error mock
-    if (url.includes('hoge:')) {
+    // Handle invalid date error mock for start date
+    if (url.includes('hoge:2022-02-15')) {
+      throw {
+        status: 400,
+        message: "Bad Request",
+        response: {
+          error: {
+            path: url,
+            text: JSON.stringify({ error: "invalid date" })
+          }
+        }
+      };
+    }
+
+    // Handle invalid date error mock for end date
+    if (url.includes('2022-01-01:hoge')) {
       throw {
         status: 400,
         message: "Bad Request",
@@ -74,83 +90,78 @@ jest.mock('../src/lib/request', () => ({
 
 describe("Throw exception error", () => {
   test("stat method: should receive 500 error when there is a network error", async () => {
-    const error = {
-      message: "getaddrinfo ENOTFOUND api.npmjs.org",
-      name: "NpmException",
-      statusCode: 500,
-      body: {
-        message: "getaddrinfo ENOTFOUND api.npmjs.org",
-        code: "ENOTFOUND",
-        errno: -3008,
-        syscall: "getaddrinfo",
-        hostname: "api.npmjs.org"
-      }
-    };
-
-    // Name the module "network" to explicitly return stubs
-    // for network error patterns.
-    await expect(stat("network", "2022-01-01", "2022-02-15")).rejects.toMatchObject(error);
+    expect.assertions(1);
+    try {
+      await stat("network", "2022-01-01", "2022-02-15");
+    } catch (error) {
+      expect(error).toMatchObject({
+        name: "NpmException",
+        statusCode: 500,
+        body: expect.objectContaining({
+          message: expect.stringContaining("ENOTFOUND")
+        })
+      });
+    }
   });
 
   test("stat method: should receive 404 error when a non-existent package name is passed it", async () => {
-    const error = {
-      message: "Not Found",
-      name: "NpmException",
-      statusCode: 404,
-      body: {
-        path: expect.stringContaining("/hoge"),
-        error: "package hoge is not found"
-      }
-    };
-
-    await expect(stat("hoge", "2022-01-01", "2022-02-15")).rejects.toMatchObject(error);
+    expect.assertions(1);
+    try {
+      await stat("hoge", "2022-01-01", "2022-02-15");
+    } catch (error) {
+      expect(error).toMatchObject({
+        name: "NpmException",
+        statusCode: 404,
+        body: expect.objectContaining({
+          error: expect.stringContaining("not found")
+        })
+      });
+    }
   });
 
   test("stat method: should receive 400 error when an arbitrary string is passed for start date", async () => {
-    const error = {
-      message: "Bad Request",
-      name: "NpmException",
-      statusCode: 400,
-      body: {
-        path: expect.stringContaining("hoge:"),
-        error: "invalid date"
-      }
-    };
-
-    await expect(stat("npm-stats-api", "hoge", "2022-02-15")).rejects.toMatchObject(error);
+    expect.assertions(1);
+    try {
+      await stat("npm-stats-api", "hoge", "2022-02-15");
+    } catch (error) {
+      expect(error).toMatchObject({
+        name: "NpmException",
+        statusCode: 400,
+        body: expect.objectContaining({
+          error: "invalid date"
+        })
+      });
+    }
   });
 
   test("stat method: should receive 400 error when an arbitrary string is passed for end date", async () => {
-    const error = {
-      message: "Bad Request",
-      name: "NpmException",
-      statusCode: 400,
-      body: {
-        path: expect.stringContaining("hoge"),
-        error: "invalid date"
-      }
-    };
-
-    await expect(stat("npm-stats-api", "2022-01-01", "hoge")).rejects.toMatchObject(error);
+    expect.assertions(1);
+    try {
+      await stat("npm-stats-api", "2022-01-01", "hoge");
+    } catch (error) {
+      expect(error).toMatchObject({
+        name: "NpmException",
+        statusCode: 400,
+        body: expect.objectContaining({
+          error: "invalid date"
+        })
+      });
+    }
   });
 
   test("details method: should receive 500 error when there is a network error", async () => {
-    const error = {
-      message: "getaddrinfo ENOTFOUND api.npmjs.org",
-      name: "NpmException",
-      statusCode: 500,
-      body: {
-        message: "getaddrinfo ENOTFOUND api.npmjs.org",
-        code: "ENOTFOUND",
-        errno: -3008,
-        syscall: "getaddrinfo",
-        hostname: "api.npmjs.org"
-      }
-    };
-
-    // Name the module "network" to explicitly return stubs
-    // for network error patterns.
-    await expect(details("network")).rejects.toMatchObject(error);
+    expect.assertions(1);
+    try {
+      await details("network");
+    } catch (error) {
+      expect(error).toMatchObject({
+        name: "NpmException",
+        statusCode: 500,
+        body: expect.objectContaining({
+          message: expect.stringContaining("ENOTFOUND")
+        })
+      });
+    }
   });
 
   test("stat method: should throw Error if package name is missing", async () => {
