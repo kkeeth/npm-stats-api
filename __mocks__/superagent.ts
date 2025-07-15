@@ -61,10 +61,10 @@ const superagent = {
     const isDetails = /registry/.test(urlStr);
     return {
       timeout: () => {
+        if (pkg === "network") throw error500;
         if (start === "hoge" || end === "hoge")
           throw error400(start === "hoge");
         if (pkg === "hoge") throw error404;
-        if (pkg === "network") throw error500;
         return usual200(isDetails);
       }
     };

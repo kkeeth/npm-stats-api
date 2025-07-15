@@ -2,17 +2,29 @@ export type ErrorType = {
     message: string;
     name: string;
     statusCode: number;
-    body: {
-        path: string;
-        error: string;
-    };
+    body: unknown;
+};
+
+// Specific error body types for type guards
+export type ApiErrorBody = {
+    path: string;
+    error: string;
+};
+
+export type NetworkErrorBody = {
+    code: string;
+    errno: number;
+    hostname: string;
+    message: string;
+    response: undefined;
+    syscall: string;
 };
 export type StatType = Promise<{
     statusCode: number;
     body: {
         downloads: number;
-        start: Date;
-        end: Date;
+        start: string;
+        end: string;
         package: string;
     };
 }>;
