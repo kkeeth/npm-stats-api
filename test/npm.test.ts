@@ -1,4 +1,5 @@
-const {stat, details} = require("../").npm;
+const { npm } = require("../index.js");
+const { stat, details } = npm;
 
 jest.disableAutomock();
 
