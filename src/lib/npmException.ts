@@ -4,24 +4,42 @@
  * @param {Object} err: object from npm API status code and response body
  * @returns void
  */
+type SuperagentError = {
+  message: string;
+  status?: number;
+  response?: {
+    error: {
+      path: string;
+      text: string;
+    };
+  };
+  [key: string]: unknown;
+};
+
 export default class NpmException {
-  message: any;
+  message: string;
   name: string;
-  statusCode!: number;
-  body: any;
+  statusCode: number;
+  body: unknown;
 
-  constructor(err: any) {
-    this.message = err.message;
+  constructor(err: unknown) {
+    // Type assertion for pragmatic implementation while maintaining unknown in public API
+    const superagentErr = err as SuperagentError;
+
+    this.message = superagentErr.message || 'Unknown error';
     this.name = 'NpmException';
+    this.statusCode = 500; // default value
+    this.body = {}; // default value
 
-    if (!err.response) {
+    // Network errors have response: undefined, API errors have response with error object
+    if (!superagentErr.response || superagentErr.response === undefined) {
       this.statusCode = 500;
       this.body = {
-        ...err
+        ...superagentErr
       };
-    } else if (Number(err.status) >= 400) {
-      const { error } = err.response;
-      this.statusCode = err.status;
+    } else if (superagentErr.status && Number(superagentErr.status) >= 400) {
+      const { error } = superagentErr.response!;
+      this.statusCode = superagentErr.status;
       this.body = {
         path: error.path,
         ...JSON.parse(error.text),

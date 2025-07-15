@@ -1,5 +1,6 @@
 'use strict';
 
+require('core-js/stable');
 var request = require('superagent');
 
 var _assign = function __assign() {
@@ -128,30 +129,33 @@ typeof SuppressedError === "function" ? SuppressedError : function (error, suppr
   return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
 
-/**
- * Custom Exception definitions
- *
- * @param {Object} err: object from npm API status code and response body
- * @returns void
- */
 var NpmException = /** @class */ (function () {
     function NpmException(err) {
-        this.message = err.message;
+        // Type assertion for pragmatic implementation while maintaining unknown in public API
+        var superagentErr = err;
+        this.message = superagentErr.message || 'Unknown error';
         this.name = 'NpmException';
-        if (!err.response) {
+        this.statusCode = 500; // default value
+        this.body = {}; // default value
+        // Network errors have response: undefined, API errors have response with error object
+        if (!superagentErr.response || superagentErr.response === undefined) {
             this.statusCode = 500;
-            this.body = _assign({}, err);
+            this.body = _assign({}, superagentErr);
         }
-        else if (Number(err.status) >= 400) {
-            var error = err.response.error;
-            this.statusCode = err.status;
+        else if (superagentErr.status && Number(superagentErr.status) >= 400) {
+            var error = superagentErr.response.error;
+            this.statusCode = superagentErr.status;
             this.body = _assign({ path: error.path }, JSON.parse(error.text));
         }
     }
     return NpmException;
 }());
 
-require("babel-polyfill");
+// Timeout configuration
+var TIMEOUT_CONFIG = {
+    response: 3 * 1000,
+    deadline: 5 * 1000,
+};
 /**
  * Body module that calls the API
  *
@@ -166,10 +170,7 @@ var load = function (url) { return __awaiter(void 0, void 0, void 0, function ()
                 _b.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, request
                         .get(url)
-                        .timeout({
-                        response: 3 * 1000,
-                        deadline: 5 * 1000,
-                    })];
+                        .timeout(TIMEOUT_CONFIG)];
             case 1:
                 _a = _b.sent(), statusCode = _a.statusCode, body = _a.body;
                 return [2 /*return*/, {
