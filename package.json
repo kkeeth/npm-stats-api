@@ -9,7 +9,6 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "superagent": "^10.0.0"
   },
   "devDependencies": {
