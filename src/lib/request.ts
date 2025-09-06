@@ -1,5 +1,3 @@
-require("babel-polyfill");
-
 import request from "superagent";
 
 import NpmException from "./npmException";
