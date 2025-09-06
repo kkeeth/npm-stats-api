@@ -1,5 +1,4 @@
-const { npm } = require("../index.js");
-const { stat, details } = npm;
+import { stat, details } from "../src/index";
 
 jest.disableAutomock();
 
@@ -21,7 +20,7 @@ describe("Throw exception error", () => {
 
     // Name the module "network" to explicitly return stubs
     // for network error patterns.
-    return expect(stat("network")).rejects.toEqual(error);
+    return expect(stat("network", "2022-01-01", "2022-02-15")).rejects.toEqual(error);
   });
 
   test("stat method: should receive 404 error when a non-existent package name is passed it", () => {
