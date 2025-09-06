@@ -1,27 +1,38 @@
-import load from "./request";
-import type { StatType, DetailType } from "../../index.d";
+import { fetchData } from "./request";
+import type { StatResponse, DetailResponse } from "../../index.d";
 
 /**
- * Get module stats
+ * Get module download statistics between two dates
  *
- * @param {String} pkg: module name
- * @param {String} start: Start date of search period
- * @param {String} end: End date of search period
- * @returns Promise object
+ * @param {string} packageName - NPM package name
+ * @param {string} startDate - Start date in YYYY-MM-DD format
+ * @param {string} endDate - End date in YYYY-MM-DD format
+ * @returns {Promise<StatResponse>} - Download statistics response
  */
-export const stat = (pkg: string, start: string, end: string): StatType => {
-  const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg ? pkg : ""}`;
-  return load(url)
+export const stat = (packageName: string, startDate: string, endDate: string): Promise<StatResponse> => {
+  if (!packageName) {
+    throw new Error("Package name is required");
+  }
+  
+  if (!startDate || !endDate) {
+    throw new Error("Start and end dates are required");
+  }
+  
+  const url = `https://api.npmjs.org/downloads/point/${startDate}:${endDate}/${packageName}`;
+  return fetchData<StatResponse>(url);
 };
 
-
 /**
- * Get module detail info
+ * Get detailed information about an NPM package
  *
- * @param {String} pkg: module name
- * @returns Promise object
+ * @param {string} packageName - NPM package name
+ * @returns {Promise<DetailResponse>} - Package details response
  */
-export const details =  (pkg: string): DetailType => {
-  const url = `https://registry.npmjs.org/${pkg ? pkg : ""}`;
-  return load(url)
+export const details = (packageName: string): Promise<DetailResponse> => {
+  if (!packageName) {
+    throw new Error("Package name is required");
+  }
+  
+  const url = `https://registry.npmjs.org/${packageName}`;
+  return fetchData<DetailResponse>(url);
 };
