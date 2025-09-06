@@ -10,10 +10,13 @@ const config: RollupOptions = {
     sourcemap: true,
     preserveModules: false,
   },
-  external: ['superagent'],
+  external: ['superagent', 'core-js/stable'],
   plugins: [
-    typescript(),
+    typescript({
+      sourceMap: true,
+    }),
     babel({
+      babelHelpers: 'bundled',
       presets: [
         [
           "@babel/preset-env",
