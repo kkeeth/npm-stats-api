@@ -209,6 +209,13 @@ var details = function (pkg) {
     return load(url);
 };
 
+var npm = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    details: details,
+    stat: stat
+});
+
 exports.details = details;
+exports.npm = npm;
 exports.stat = stat;
 //# sourceMappingURL=index.js.map
