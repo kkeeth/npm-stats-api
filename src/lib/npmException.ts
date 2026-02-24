@@ -13,8 +13,6 @@ export default class NpmException {
   constructor(err: any) {
     this.message = err.message;
     this.name = 'NpmException';
-    this.statusCode = 500;
-    this.body = {};
 
     if (!err.response) {
       this.statusCode = 500;
@@ -28,6 +26,10 @@ export default class NpmException {
         path: error.path,
         ...JSON.parse(error.text),
       };
+    } else {
+      // Fallback for unexpected cases
+      this.statusCode = 500;
+      this.body = {};
     }
   }
 }

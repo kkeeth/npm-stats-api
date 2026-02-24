@@ -138,8 +138,6 @@ var NpmException = /** @class */ (function () {
     function NpmException(err) {
         this.message = err.message;
         this.name = 'NpmException';
-        this.statusCode = 500;
-        this.body = {};
         if (!err.response) {
             this.statusCode = 500;
             this.body = _assign({}, err);
@@ -148,6 +146,11 @@ var NpmException = /** @class */ (function () {
             var error = err.response.error;
             this.statusCode = err.status;
             this.body = _assign({ path: error.path }, JSON.parse(error.text));
+        }
+        else {
+            // Fallback for unexpected cases
+            this.statusCode = 500;
+            this.body = {};
         }
     }
     return NpmException;
