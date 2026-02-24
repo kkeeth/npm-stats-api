@@ -38,6 +38,6 @@ npm
     console.log("status:", res);
   })
   .catch(err => {
-    console.log("\n# not found error pattern about details method");
+    console.log("\n# not found error pattern about stat method");
     console.log(err);
   });
