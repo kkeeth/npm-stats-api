@@ -138,6 +138,8 @@ var NpmException = /** @class */ (function () {
     function NpmException(err) {
         this.message = err.message;
         this.name = 'NpmException';
+        this.statusCode = 500;
+        this.body = {};
         if (!err.response) {
             this.statusCode = 500;
             this.body = _assign({}, err);

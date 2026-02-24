@@ -15,10 +15,8 @@
     "@babel/core": "7.28.4",
     "@babel/preset-env": "7.28.3",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-typescript": "^12.0.0",
     "@types/jest": "^30.0.0",
-    "@types/request": "^2.48.8",
     "@types/superagent": "^8.0.0",
     "husky": "9.1.7",
     "jest": "30.2.0",
@@ -29,21 +27,11 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "dev": "pnpm build --watch",
+    "dev": "npm run build -- --watch",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "format": "prettier --write 'test/*'",
+    "format": "prettier --write 'src/**/*' 'test/**/*'",
     "test": "jest ./test/*",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "pnpm test"
-    }
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ]
   },
   "repository": {
     "type": "git",

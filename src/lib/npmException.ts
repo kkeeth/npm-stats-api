@@ -5,14 +5,16 @@
  * @returns void
  */
 export default class NpmException {
-  message: any;
+  message: string;
   name: string;
-  statusCode!: number;
-  body: any;
+  statusCode: number;
+  body: unknown;
 
   constructor(err: any) {
     this.message = err.message;
     this.name = 'NpmException';
+    this.statusCode = 500;
+    this.body = {};
 
     if (!err.response) {
       this.statusCode = 500;
