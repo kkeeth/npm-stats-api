@@ -9,7 +9,6 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "superagent": "^10.0.0"
   },
   "devDependencies": {
@@ -21,7 +20,6 @@
     "@types/jest": "^30.0.0",
     "@types/request": "^2.48.8",
     "@types/superagent": "^8.0.0",
-    "babel": "6.23.0",
     "husky": "9.1.7",
     "jest": "30.2.0",
     "prettier": "3.7.4",

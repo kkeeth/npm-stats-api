@@ -151,7 +151,6 @@ var NpmException = /** @class */ (function () {
     return NpmException;
 }());
 
-require("babel-polyfill");
 /**
  * Body module that calls the API
  *
@@ -194,7 +193,7 @@ var load = function (url) { return __awaiter(void 0, void 0, void 0, function ()
  * @returns Promise object
  */
 var stat = function (pkg, start, end) {
-    var url = "https://api.npmjs.org/downloads/point/".concat(start, ":").concat(end, "/").concat(pkg ? pkg : "");
+    var url = "https://api.npmjs.org/downloads/point/".concat(start, ":").concat(end, "/").concat(pkg);
     return load(url);
 };
 /**
@@ -204,7 +203,7 @@ var stat = function (pkg, start, end) {
  * @returns Promise object
  */
 var details = function (pkg) {
-    var url = "https://registry.npmjs.org/".concat(pkg ? pkg : "");
+    var url = "https://registry.npmjs.org/".concat(pkg);
     return load(url);
 };
 
