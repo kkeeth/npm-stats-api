@@ -1,6 +1,7 @@
 import type { RollupOptions } from "rollup";
 import babel from "@rollup/plugin-babel";
 import typescript from "@rollup/plugin-typescript";
+import commonjs from "@rollup/plugin-commonjs";
 
 const config: RollupOptions = {
   input: "src/index.ts",
@@ -12,8 +13,15 @@ const config: RollupOptions = {
   },
   external: ['superagent'],
   plugins: [
-    typescript(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      declaration: false, // ここを変更：d.tsファイルはTypeScriptコンパイラで生成する
+      sourceMap: true,
+      inlineSources: true
+    }),
+    commonjs(),
     babel({
+      babelHelpers: 'bundled',
       presets: [
         [
           "@babel/preset-env",
@@ -24,7 +32,8 @@ const config: RollupOptions = {
             }
           }
         ]
-      ]
+      ],
+      extensions: ['.js', '.ts']
     })
   ]
 };

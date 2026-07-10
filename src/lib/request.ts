@@ -1,32 +1,76 @@
-require("babel-polyfill");
-
-import request from "superagent";
-
-import NpmException from "./npmException";
-import type { ErrorType } from "../../index.d"
+import { NpmException } from './npmException';
 
 /**
- * Body module that calls the API
- *
- * @param {String} url: request URL with params
- * @returns {Object} object from npm API status code and response body
+ * Timeout for fetch request
  */
- const load = async (url: string) => {
+const TIMEOUT_MS = 5000;
+
+/**
+ * Custom fetch with timeout
+ * 
+ * @param {string} url - URL to fetch
+ * @param {RequestInit} options - fetch options
+ * @param {number} timeout - timeout in milliseconds
+ * @returns {Promise<Response>} - fetch response
+ */
+const fetchWithTimeout = async (
+  url: string, 
+  options: RequestInit = {}, 
+  timeout: number = TIMEOUT_MS
+): Promise<Response> => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  
   try {
-    const { statusCode, body } = await request
-      .get(url)
-      .timeout({
-        response: 3 * 1000,
-        deadline: 5 * 1000,
-      });
-    return {
-      statusCode: statusCode,
-      body: body,
-    };
-  } catch (err) {
-    const obj: ErrorType = new NpmException(err)
-    throw obj;
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    
+    return response;
+  } finally {
+    clearTimeout(timeoutId);
   }
 };
 
-export default load;
+/**
+ * Fetch data from NPM API
+ * 
+ * @template T - Response type
+ * @param {string} url - API URL
+ * @returns {Promise<T>} - Response data
+ * @throws {NpmException} - Error during fetch
+ */
+export const fetchData = async <T>(url: string): Promise<T> => {
+  try {
+    const response = await fetchWithTimeout(url);
+    
+    if (!response.ok) {
+      throw {
+        status: response.status,
+        response: {
+          error: {
+            path: url,
+            text: await response.text()
+          }
+        }
+      };
+    }
+    
+    const body = await response.json();
+    
+    return {
+      statusCode: response.status,
+      body
+    } as unknown as T;
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new NpmException({
+        message: 'Request timeout exceeded',
+        status: 408
+      });
+    }
+    
+    throw new NpmException(error);
+  }
+};
