@@ -11,8 +11,8 @@ export type StatType = Promise<{
     statusCode: number;
     body: {
         downloads: number;
-        start: Date;
-        end: Date;
+        start: string;
+        end: string;
         package: string;
     };
 }>;

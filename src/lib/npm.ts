@@ -10,8 +10,8 @@ import type { StatType, DetailType } from "../../index.d";
  * @returns Promise object
  */
 export const stat = (pkg: string, start: string, end: string): StatType => {
-  const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg ? pkg : ""}`;
-  return load(url)
+  const url = `https://api.npmjs.org/downloads/point/${start}:${end}/${pkg}`;
+  return load(url);
 };
 
 
@@ -21,7 +21,7 @@ export const stat = (pkg: string, start: string, end: string): StatType => {
  * @param {String} pkg: module name
  * @returns Promise object
  */
-export const details =  (pkg: string): DetailType => {
-  const url = `https://registry.npmjs.org/${pkg ? pkg : ""}`;
-  return load(url)
+export const details = (pkg: string): DetailType => {
+  const url = `https://registry.npmjs.org/${pkg}`;
+  return load(url);
 };

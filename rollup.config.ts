@@ -14,6 +14,7 @@ const config: RollupOptions = {
   plugins: [
     typescript(),
     babel({
+      babelHelpers: 'bundled',
       presets: [
         [
           "@babel/preset-env",
