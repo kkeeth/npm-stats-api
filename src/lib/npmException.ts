@@ -5,10 +5,10 @@
  * @returns void
  */
 export default class NpmException {
-  message: any;
+  message: string;
   name: string;
-  statusCode!: number;
-  body: any;
+  statusCode: number;
+  body: unknown;
 
   constructor(err: any) {
     this.message = err.message;
@@ -26,6 +26,10 @@ export default class NpmException {
         path: error.path,
         ...JSON.parse(error.text),
       };
+    } else {
+      // Fallback for unexpected cases
+      this.statusCode = 500;
+      this.body = {};
     }
   }
 }
