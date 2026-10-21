@@ -1,5 +1,4 @@
 [![npm version](https://badge.fury.io/js/npm-stats-api.svg)](https://badge.fury.io/js/npm-stats-api)
-[![Code Climate](https://codeclimate.com/github/kkeeth/npm-stats-api/badges/gpa.svg)](https://codeclimate.com/github/kkeeth/npm-stats-api)
 ![node](https://img.shields.io/badge/node-%3E%3D%2020.18.3-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
@@ -28,7 +27,7 @@ $ npm install npm-stats-api --save
 i. Get package's stats
 
 ```js
-const npm = require("npm-stats-api");
+const { npm } = require("npm-stats-api");
 
 // Parameters:
 // 1. Package Name
@@ -40,7 +39,7 @@ npm.stat("npm-stats-api", "2022-01-01", "2022-02-15")
   });
 
 // if you use async/await
-import npm from "npm-stats-api";
+import { npm } from "npm-stats-api";
 (async () => {
   const res = await npm.stat("npm-stats-api", "2022-01-01", "2022-02-15");
   console.log(res);
@@ -62,7 +61,7 @@ import npm from "npm-stats-api";
 ii. Get package's details
 
 ```js
-const npm = require("npm-stats-api");
+const { npm } = require("npm-stats-api");
 
 // Parameters:
 //   Package name
@@ -92,6 +91,18 @@ If you want to try it easily at hand, please clone this repository and run the `
 
 ```bash
 $ node app.js
+```
+
+# Migrating from v2
+
+Since v3.0.0, `stat` and `details` are exported under the `npm` namespace.
+
+```js
+// v2
+const npm = require("npm-stats-api");
+
+// v3
+const { npm } = require("npm-stats-api");
 ```
 
 # ⚠ Limits ⚠
