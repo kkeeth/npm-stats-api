@@ -1,4 +1,5 @@
 const {stat, details} = require("../").npm;
+const pkgVersion = require("../package.json").version;
 
 jest.disableAutomock();
 
@@ -114,7 +115,7 @@ describe("Patterns that process normally", () => {
       statusCode: 200,
       body: {
         "dist-tags": {
-          latest: "2.1.2"
+          latest: pkgVersion
         },
         license: "MIT",
         name: "npm-stats-api"
