@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/npm-stats-api.svg)](https://badge.fury.io/js/npm-stats-api)
-![node](https://img.shields.io/badge/node-%3E%3D%2020.18.3-brightgreen.svg?style=social)
+![node](https://img.shields.io/badge/node-%3E%3D%2024.22.1-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # npm-stats-api
