@@ -23,7 +23,7 @@
     "@types/superagent": "^8.0.0",
     "babel": "6.23.0",
     "husky": "9.1.7",
-    "jest": "30.4.2",
+    "jest": "30.5.0",
     "prettier": "3.10.0",
     "rollup": "^4.0.0",
     "ts-jest": "^29.1.1",
